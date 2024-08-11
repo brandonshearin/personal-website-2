@@ -21,9 +21,9 @@ export default function HeroImage({ images }: { images: StaticImageData[] }) {
       placeholder="blur"
       quality={100}
       fill
-      sizes="100vw"
       style={{
         objectFit: "cover",
+        objectPosition: "center",
       }}
     ></Image>
   );

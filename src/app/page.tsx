@@ -35,10 +35,24 @@ export default function Home() {
 
   return (
     <>
-      <div style={{ position: "relative", height: "95vh", top: "-100px" }}>
+      <div
+        style={{
+          position: "relative",
+          height: "100vh",
+          width: "100vw",
+          top: "-100px",
+        }}
+      >
         <HeroImage images={images} />
 
-        <div style={{ position: "relative", height: "95vh" }}>
+        <div
+          style={{
+            position: "relative",
+            height: "95vh",
+            width: "100vw",
+            overflowX: "hidden",
+          }}
+        >
           <div
             style={{
               top: "35%",
