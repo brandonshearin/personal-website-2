@@ -4,7 +4,7 @@ import ListItem from "./components/ListItem";
 import path from "path";
 import fs from "fs";
 import HeroImage from "./components/HeroImage";
-import { posts } from "./posts";
+import posts from "./posts";
 
 const mediumTongari = localFont({
   src: "./fonts/TongariDisplayLimited-Medium.woff2",

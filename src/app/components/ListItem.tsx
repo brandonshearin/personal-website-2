@@ -1,7 +1,7 @@
 import Image from "next/image";
 import localFont from "next/font/local";
 import Link from "next/link";
-import { posts, PostType } from "../posts";
+import { PostType } from "../posts";
 
 const davidRegular = localFont({
   src: "../fonts/david_03_regular.woff2",
@@ -21,7 +21,7 @@ export default function ListItem({ post }: { post: PostType }) {
         style={{ display: "flex", flexDirection: "column", gap: "4px" }}
       >
         <Image
-          src={post.imgSrc}
+          src={post.imgSrc[0]}
           alt={"mom"}
           height={460}
           style={{

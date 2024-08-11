@@ -1,4 +1,4 @@
-import { posts } from "@/app/posts";
+import posts from "@/app/posts";
 import localFont from "next/font/local";
 import Image from "next/image";
 import Link from "next/link";
@@ -56,7 +56,7 @@ export default function Post({ params }: { params: { slug: string } }) {
       </div>
 
       <Image
-        src={content.imgSrc}
+        src={content.imgSrc[0]}
         alt={"mom"}
         height={460}
         style={{
@@ -92,6 +92,21 @@ export default function Post({ params }: { params: { slug: string } }) {
       >
         {writing}
       </p>
+
+      {content.imgSrc.length > 1 &&
+        content.imgSrc.slice(1).map((img, idx) => {
+          return (
+            <Image
+              key={idx}
+              src={img}
+              alt={content.title}
+              height={460}
+              style={{
+                objectFit: "cover",
+              }}
+            ></Image>
+          );
+        })}
     </div>
   );
 }
