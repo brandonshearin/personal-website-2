@@ -2,11 +2,15 @@
 
 import localFont from "next/font/local";
 import Link from "next/link";
-import { relative } from "path";
 import { useState } from "react";
 
 const mediumTongari = localFont({
   src: "../fonts/TongariDisplayLimited-Medium.woff2",
+  display: "swap",
+});
+
+const davidRegular = localFont({
+  src: "../fonts/david_03_regular.woff2",
   display: "swap",
 });
 
@@ -70,7 +74,7 @@ export default function Menu() {
                 </Link>
               </li>
               <li>
-                <Link href="/index" onClick={() => setShowMenu(false)}>
+                <Link href="/list" onClick={() => setShowMenu(false)}>
                   INDEX
                 </Link>
               </li>
@@ -80,26 +84,38 @@ export default function Menu() {
                 </Link>
               </li>
               <li>
-                <Link href="/instagram" onClick={() => setShowMenu(false)}>
+                <Link
+                  href="https://www.instagram.com/brandonshearin__/"
+                  target="__blank"
+                  onClick={() => setShowMenu(false)}
+                >
                   INSTAGRAM
                 </Link>
               </li>
             </ul>
           </div>
 
-          <p
-            className={mediumTongari.className}
+          <div
+            className={davidRegular.className}
             style={{
               position: "absolute",
               bottom: "65px",
-              zIndex: 10001,
+              left: 0,
+              right: 0,
               color: "#FA4639",
               textAlign: "center",
               fontSize: "13px",
             }}
           >
-            *site intended for mobile devices only. on desktop will look pitiful
-          </p>
+            <p style={{ marginBottom: "8px" }}>
+              holla at me @ bshearin15@gmail.com
+            </p>
+
+            <p>
+              *site intended for mobile devices only. on desktop will look
+              pitiful
+            </p>
+          </div>
         </div>
       )}
     </>

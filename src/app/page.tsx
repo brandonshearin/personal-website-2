@@ -97,9 +97,11 @@ export default function Home() {
           top: "-100px",
         }}
       >
-        {Object.values(posts).map((row) => {
-          return <ListItem key={row.title} post={row} />;
-        })}
+        {Object.values(posts)
+          .reverse()
+          .map((row) => {
+            return <ListItem key={row.title} post={row} />;
+          })}
       </div>
     </>
   );
