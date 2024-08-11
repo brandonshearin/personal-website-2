@@ -86,6 +86,20 @@ export default function Menu() {
               </li>
             </ul>
           </div>
+
+          <p
+            className={mediumTongari.className}
+            style={{
+              position: "absolute",
+              bottom: "65px",
+              zIndex: 10001,
+              color: "#FA4639",
+              textAlign: "center",
+              fontSize: "13px",
+            }}
+          >
+            *site intended for mobile devices only. on desktop will look pitiful
+          </p>
         </div>
       )}
     </>
