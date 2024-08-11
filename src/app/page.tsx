@@ -4,6 +4,7 @@ import ListItem from "./components/ListItem";
 import path from "path";
 import fs from "fs";
 import HeroImage from "./components/HeroImage";
+import { posts } from "./posts";
 
 const mediumTongari = localFont({
   src: "./fonts/TongariDisplayLimited-Medium.woff2",
@@ -96,8 +97,8 @@ export default function Home() {
           top: "-100px",
         }}
       >
-        {[1, 2, 3].map((row) => {
-          return <ListItem key={row} />;
+        {Object.values(posts).map((row) => {
+          return <ListItem key={row.title} />;
         })}
       </div>
     </>

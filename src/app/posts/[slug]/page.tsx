@@ -1,6 +1,7 @@
-import { posts } from "@/app/components/ListItem";
+import { posts } from "@/app/posts";
 import localFont from "next/font/local";
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 
 const exposureFont = localFont({
@@ -15,12 +16,19 @@ const davidExtralight = localFont({
 
 export default function Post({ params }: { params: { slug: string } }) {
   const content = posts[params.slug];
-  const writing = content.text.split("\n").map((line, index) => (
+  const postsCount = Object.keys(posts).length;
+
+  const writing = content?.text?.split("\n").map((line, index) => (
     <React.Fragment key={index}>
       {line}
       <br />
     </React.Fragment>
   ));
+
+  const slug = Number(params.slug);
+
+  const prevSlug = slug - 1;
+  const nextSlug = slug + 1;
 
   return (
     <div
@@ -31,6 +39,21 @@ export default function Post({ params }: { params: { slug: string } }) {
         gap: "24px",
       }}
     >
+      <div style={{ display: "flex", justifyContent: "space-between" }}>
+        <Link
+          href={`/posts/${prevSlug}`}
+          style={{ visibility: slug > 1 ? "visible" : "hidden" }}
+        >
+          prev
+        </Link>
+        <Link
+          href={`/posts/${nextSlug}`}
+          style={{ visibility: slug < postsCount ? "visible" : "hidden" }}
+        >
+          next
+        </Link>
+      </div>
+
       <Image
         src={content.imgSrc}
         alt={"mom"}
