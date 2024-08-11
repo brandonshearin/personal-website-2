@@ -5,9 +5,9 @@ import a from "../../public/1/IMG_1556.jpeg";
 import b from "../../public/1/IMG_1561.jpeg";
 import c from "../../public/1/IMG_4856.jpeg";
 
-import d from "../../public/2/d.jpg";
-import e from "../../public/2/e.jpg";
-import f from "../../public/2/f.jpg";
+import d from "../../public/2/d.jpeg";
+import e from "../../public/2/e.jpeg";
+import f from "../../public/2/f.jpeg";
 
 import g from "../../public/3/g.jpeg";
 
