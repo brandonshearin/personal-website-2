@@ -37,6 +37,7 @@ export default function Post({ params }: { params: { slug: string } }) {
         display: "flex",
         flexDirection: "column",
         gap: "24px",
+        marginBottom: "96px",
       }}
     >
       <div style={{ display: "flex", justifyContent: "space-between" }}>
@@ -78,8 +79,15 @@ export default function Post({ params }: { params: { slug: string } }) {
       <p
         className={davidExtralight.className}
         style={{
-          fontSize: "6vw",
-          lineHeight: 1.2,
+          fontSize: "18px",
+        }}
+      >
+        {content.date}
+      </p>
+      <p
+        className={davidExtralight.className}
+        style={{
+          fontSize: "18px",
         }}
       >
         {writing}

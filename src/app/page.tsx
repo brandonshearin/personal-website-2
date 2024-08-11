@@ -98,7 +98,7 @@ export default function Home() {
         }}
       >
         {Object.values(posts).map((row) => {
-          return <ListItem key={row.title} />;
+          return <ListItem key={row.title} post={row} />;
         })}
       </div>
     </>
