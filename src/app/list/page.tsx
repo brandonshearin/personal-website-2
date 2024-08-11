@@ -1,5 +1,5 @@
 import localFont from "next/font/local";
-import { posts } from "../posts";
+import posts from "../posts";
 import Link from "next/link";
 
 const exposureFont = localFont({

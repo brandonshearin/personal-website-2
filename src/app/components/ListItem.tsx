@@ -18,14 +18,20 @@ export default function ListItem({ post }: { post: PostType }) {
     <Link href={`/posts/${post.slug}`}>
       <div
         className={davidRegular.className}
-        style={{ display: "flex", flexDirection: "column", gap: "4px" }}
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          gap: "4px",
+          alignItems: "center",
+        }}
       >
         <Image
           src={post.imgSrc[0]}
           alt={"mom"}
-          height={460}
+          // height={300}
           style={{
             objectFit: "cover",
+            aspectRatio: post.landscape ? "5/4" : "4/5",
           }}
         ></Image>
         <p className={davidExtralight.className} style={{ fontSize: "13px" }}>

@@ -61,6 +61,7 @@ export default function Post({ params }: { params: { slug: string } }) {
         height={460}
         style={{
           objectFit: "cover",
+          aspectRatio: content.landscape ? "5/4" : "4/5",
         }}
       ></Image>
       <p
@@ -103,6 +104,7 @@ export default function Post({ params }: { params: { slug: string } }) {
               height={460}
               style={{
                 objectFit: "cover",
+                aspectRatio: content.landscape ? "5/4" : "4/5",
               }}
             ></Image>
           );
