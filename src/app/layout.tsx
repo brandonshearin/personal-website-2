@@ -7,8 +7,23 @@ import Menu from "./components/Menu";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Wuz Good Family",
+  title: "brandon shearin",
   description: "getting started on a beautiful website",
+  openGraph: {
+    title: "brandon shearin",
+    description: "a wonderful place to spend time",
+    url: "https://brandonshearin.com",
+    siteName: "brandon shearin",
+    images: [
+      {
+        url: "https://oennoqfwwu9del0c.public.blob.vercel-storage.com/IMG_2051-tD14M6WAEzZsJIu44JfH3LJB3I2bCO.jpeg",
+        width: 600,
+        height: 600,
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
 };
 
 const mediumTongari = localFont({

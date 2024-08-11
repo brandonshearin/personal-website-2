@@ -29,7 +29,7 @@ export default function Index() {
           .reverse()
           .map((post) => {
             return (
-              <Link href={`/posts/${post.slug}`}>
+              <Link href={`/posts/${post.slug}`} key={post.title}>
                 <li style={{ marginTop: "4px", marginBottom: "4px" }}>
                   <div
                     style={{
