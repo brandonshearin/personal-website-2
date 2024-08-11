@@ -56,17 +56,17 @@ export default function RootLayout({
             top: "0",
             width: "100%",
             padding: "24px",
-            justifyContent: "space-between",
+            justifyContent: "end",
             alignItems: "center",
             zIndex: "10000",
           }}
         >
-          <h1
+          {/* <h1
             className={mediumTongari.className}
             style={{ fontSize: "6vw", color: "#fffff5" }}
           >
             Brandón
-          </h1>
+          </h1> */}
           <Menu></Menu>
         </div>
         {children}

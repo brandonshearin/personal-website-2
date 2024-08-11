@@ -22,16 +22,15 @@ export default function ListItem({ post }: { post: PostType }) {
           display: "flex",
           flexDirection: "column",
           gap: "4px",
-          alignItems: "center",
         }}
       >
         <Image
           src={post.imgSrc[0]}
           alt={"mom"}
-          // height={300}
           style={{
             objectFit: "cover",
             aspectRatio: post.landscape ? "5/4" : "4/5",
+            alignSelf: "center",
           }}
         ></Image>
         <p className={davidExtralight.className} style={{ fontSize: "13px" }}>
