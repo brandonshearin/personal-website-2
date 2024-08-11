@@ -1,0 +1,588 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* --foreground-rgb: 255, 255, 255; */
+    /* --background-start-rgb: 0, 0, 0; */
+    /* --background-end-rgb: 0, 0, 0; */
+    --foreground-rbg: #fffff5;
+    --background-start-rgb:#fffff5;
+    --background-end-rgb: #fffff5;
+  }
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+.hover-variable-settings:hover {
+  /* @apply font-bold; */
+  /* Apply other Tailwind utilities */
+  font-variation-settings: "EXPO" -100;
+}
+
+@font-face {
+  font-family: "Emilieshand-Regular";
+  src: url("https://aisforfonts.com/wp-content/uploads/2020/03/Emilieshand-Regular.woff") format("woff");
+}
+
+@font-face {
+  font-family: "TongariDisplayLimited-Black";
+  src: url("https://aisforfonts.com/wp-content/uploads/2020/06/TongariDisplayLimited-Black.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "TongariDisplayLimited-SemiLightitalic";
+  src: url("https://aisforfonts.com/wp-content/uploads/2020/06/TongariDisplayLimited-SemiLightitalic.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "TongariDisplayLimited-SemiLight";
+  src: url("https://aisforfonts.com/wp-content/uploads/2020/06/TongariDisplayLimited-SemiLight.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "TongariDisplayLimited-Regularitalic";
+  src: url("https://aisforfonts.com/wp-content/uploads/2020/06/TongariDisplayLimited-Regularitalic.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "TongariDisplayLimited-Regular";
+  src: url("https://aisforfonts.com/wp-content/uploads/2020/06/TongariDisplayLimited-Regular.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "TongariDisplayLimited-Mediumitalic";
+  src: url("https://aisforfonts.com/wp-content/uploads/2020/06/TongariDisplayLimited-Mediumitalic.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "TongariDisplayLimited-Medium";
+  src: url("https://aisforfonts.com/wp-content/uploads/2020/06/TongariDisplayLimited-Medium.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "TongariDisplayLimited-Lightitalic";
+  src: url("https://aisforfonts.com/wp-content/uploads/2020/06/TongariDisplayLimited-Lightitalic.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "TongariDisplayLimited-Light";
+  src: url("https://aisforfonts.com/wp-content/uploads/2020/06/TongariDisplayLimited-Light.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "TongariDisplayLimited-Extrabolditalic";
+  src: url("https://aisforfonts.com/wp-content/uploads/2020/06/TongariDisplayLimited-Extrabolditalic.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "TongariDisplayLimited-Extrabold";
+  src: url("https://aisforfonts.com/wp-content/uploads/2020/06/TongariDisplayLimited-Extrabold.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "TongariDisplayLimited-Bolditalic";
+  src: url("https://aisforfonts.com/wp-content/uploads/2020/06/TongariDisplayLimited-Bolditalic.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "TongariDisplayLimited-Bold";
+  src: url("https://aisforfonts.com/wp-content/uploads/2020/06/TongariDisplayLimited-Bold.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "TongariDisplayLimited-Blackitalic";
+  src: url("https://aisforfonts.com/wp-content/uploads/2020/06/TongariDisplayLimited-Blackitalic.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Btp-Light";
+  src: url("https://aisforfonts.com/wp-content/uploads/2020/06/Btp-Light.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Btp-LightRotated";
+  src: url("https://aisforfonts.com/wp-content/uploads/2020/06/Btp-LightRotated.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Btp-Normal";
+  src: url("https://aisforfonts.com/wp-content/uploads/2020/06/Btp-Normal.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Btp-Rotated";
+  src: url("https://aisforfonts.com/wp-content/uploads/2020/06/Btp-Rotated.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Coline1-Bold";
+  src: url("https://aisforfonts.com/wp-content/uploads/2020/06/Coline1-Bold.woff") format("");
+}
+
+@font-face {
+  font-family: "Coline3-Light";
+  src: url("https://aisforfonts.com/wp-content/uploads/2020/06/Coline3-Light.woff") format("");
+}
+
+@font-face {
+  font-family: "Coline3-Bold";
+  src: url("https://aisforfonts.com/wp-content/uploads/2020/06/Coline3-Bold.woff") format("");
+}
+
+@font-face {
+  font-family: "Coline2-Bold";
+  src: url("https://aisforfonts.com/wp-content/uploads/2020/06/Coline2-Bold.woff") format("");
+}
+
+@font-face {
+  font-family: "david_ital_03_regular-webfont";
+  src: url("https://aisforfonts.com/wp-content/uploads/2020/06/david_ital_03_regular-webfont.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "david_04_medium-webfont";
+  src: url("https://aisforfonts.com/wp-content/uploads/2020/06/david_04_medium-webfont.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "david_03_regular-webfont";
+  src: url("https://aisforfonts.com/wp-content/uploads/2020/06/david_03_regular-webfont.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "david_02_light-webfont";
+  src: url("https://aisforfonts.com/wp-content/uploads/2020/06/david_02_light-webfont.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "david_01_extralight-webfont";
+  src: url("https://aisforfonts.com/wp-content/uploads/2020/06/david_01_extralight-webfont.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "David-06-Heavyitalic";
+  src: url("https://aisforfonts.com/wp-content/uploads/2020/06/David-06-Heavyitalic.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "David-06-Heavy";
+  src: url("https://aisforfonts.com/wp-content/uploads/2020/06/David-06-Heavy.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "David-05-Bolditalic";
+  src: url("https://aisforfonts.com/wp-content/uploads/2020/06/David-05-Bolditalic.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "David-05-Bold";
+  src: url("https://aisforfonts.com/wp-content/uploads/2020/06/David-05-Bold.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "David-04-Mediumitalic";
+  src: url("https://aisforfonts.com/wp-content/uploads/2020/06/David-04-Mediumitalic.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "David-02-Lightitalic";
+  src: url("https://aisforfonts.com/wp-content/uploads/2020/06/David-02-Lightitalic.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "David-01-ExtraLightitalic";
+  src: url("https://aisforfonts.com/wp-content/uploads/2020/06/David-01-ExtraLightitalic.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "aa_knif-mono-webfont";
+  src: url("https://aisforfonts.com/wp-content/uploads/2020/06/aa_knif-mono-webfont.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "aa_knif-mono_italic-webfont";
+  src: url("https://aisforfonts.com/wp-content/uploads/2020/06/aa_knif-mono_italic-webfont.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "naoko-07-black-webfont";
+  src: url("https://aisforfonts.com/wp-content/uploads/2020/06/naoko-07-black-webfont-1.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "naoko-07-black-italic-webfont";
+  src: url("https://aisforfonts.com/wp-content/uploads/2020/06/naoko-07-black-italic-webfont-1.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "naoko-06-extrabold-webfont";
+  src: url("https://aisforfonts.com/wp-content/uploads/2020/06/naoko-06-extrabold-webfont-1.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "naoko-06-extrabold-italic-webfont";
+  src: url("https://aisforfonts.com/wp-content/uploads/2020/06/naoko-06-extrabold-italic-webfont-1.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "naoko-05-bold-webfont";
+  src: url("https://aisforfonts.com/wp-content/uploads/2020/06/naoko-05-bold-webfont-1.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "naoko-05-bold-italic-webfont";
+  src: url("https://aisforfonts.com/wp-content/uploads/2020/06/naoko-05-bold-italic-webfont-1.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "naoko-04-medium-webfont";
+  src: url("https://aisforfonts.com/wp-content/uploads/2020/06/naoko-04-medium-webfont-1.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "naoko-04-medium-italic-webfont";
+  src: url("https://aisforfonts.com/wp-content/uploads/2020/06/naoko-04-medium-italic-webfont-1.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "naoko-03-regular-webfont";
+  src: url("https://aisforfonts.com/wp-content/uploads/2020/06/naoko-03-regular-webfont-1.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "naoko-03-regular-italic-webfont";
+  src: url("https://aisforfonts.com/wp-content/uploads/2020/06/naoko-03-regular-italic-webfont-1.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "naoko-02-semilight-webfont";
+  src: url("https://aisforfonts.com/wp-content/uploads/2020/06/naoko-02-semilight-webfont-1.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "naoko-02-semilight-italic-webfont";
+  src: url("https://aisforfonts.com/wp-content/uploads/2020/06/naoko-02-semilight-italic-webfont-1.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "naoko-01-light-webfont";
+  src: url("https://aisforfonts.com/wp-content/uploads/2020/06/naoko-01-light-webfont-1.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "naoko-01-light-italic-webfont";
+  src: url("https://aisforfonts.com/wp-content/uploads/2020/06/naoko-01-light-italic-webfont-1.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "tongari-xbold";
+  src: url("https://aisforfonts.com/wp-content/uploads/2020/06/tongari-xbold.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "tongari-xbold-italic";
+  src: url("https://aisforfonts.com/wp-content/uploads/2020/06/tongari-xbold-italic.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "tongari-slight";
+  src: url("https://aisforfonts.com/wp-content/uploads/2020/06/tongari-slight.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "tongari-slight-italic";
+  src: url("https://aisforfonts.com/wp-content/uploads/2020/06/tongari-slight-italic.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "tongari-regular";
+  src: url("https://aisforfonts.com/wp-content/uploads/2020/06/tongari-regular.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "tongari-regular-italic";
+  src: url("https://aisforfonts.com/wp-content/uploads/2020/06/tongari-regular-italic.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "tongari-medium";
+  src: url("https://aisforfonts.com/wp-content/uploads/2020/06/tongari-medium.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "tongari-medium-italic";
+  src: url("https://aisforfonts.com/wp-content/uploads/2020/06/tongari-medium-italic.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "tongari-light";
+  src: url("https://aisforfonts.com/wp-content/uploads/2020/06/tongari-light.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "tongari-light-italic";
+  src: url("https://aisforfonts.com/wp-content/uploads/2020/06/tongari-light-italic.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "tongari-bold";
+  src: url("https://aisforfonts.com/wp-content/uploads/2020/06/tongari-bold.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "tongari-bold-italic";
+  src: url("https://aisforfonts.com/wp-content/uploads/2020/06/tongari-bold-italic.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "tongari-black";
+  src: url("https://aisforfonts.com/wp-content/uploads/2020/06/tongari-black.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "tongari-black-italic";
+  src: url("https://aisforfonts.com/wp-content/uploads/2020/06/tongari-black-italic.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "aa-trabis-webfont";
+  src: url("https://aisforfonts.com/wp-content/uploads/2020/06/aa-trabis-webfont.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "coline1reg-webfont";
+  src: url("https://aisforfonts.com/wp-content/uploads/2020/06/coline1reg-webfont.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "coline3reg-webfont";
+  src: url("https://aisforfonts.com/wp-content/uploads/2020/06/coline3reg-webfont.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "coline2reg-webfont";
+  src: url("https://aisforfonts.com/wp-content/uploads/2020/06/coline2reg-webfont.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "aa_jaakko-webfont";
+  src: url("https://aisforfonts.com/wp-content/uploads/2020/06/aa_jaakko-webfont.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "aa_grotesque6reg-webfont";
+  src: url("https://aisforfonts.com/wp-content/uploads/2020/06/aa_grotesque6reg-webfont.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "aa_grotesque6bold-webfont";
+  src: url("https://aisforfonts.com/wp-content/uploads/2020/06/aa_grotesque6bold-webfont.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "aa_grotesque6black-webfont";
+  src: url("https://aisforfonts.com/wp-content/uploads/2020/06/aa_grotesque6black-webfont.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Coline2-Bold";
+  src: url("https://aisforfonts.com/wp-content/uploads/2020/08/Coline2-Bold.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Coline3-Light";
+  src: url("https://aisforfonts.com/wp-content/uploads/2020/08/Coline3-Light.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Coline3-Bold";
+  src: url("https://aisforfonts.com/wp-content/uploads/2020/08/Coline3-Bold.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Coline1-Bold";
+  src: url("https://aisforfonts.com/wp-content/uploads/2020/08/Coline1-Bold.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "PachinkoLimited-RegularText";
+  src: url("https://aisforfonts.com/wp-content/uploads/2020/11/PachinkoLimited-RegularText.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "PachinkoLimited-RegularMono";
+  src: url("https://aisforfonts.com/wp-content/uploads/2020/11/PachinkoLimited-RegularMono.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "PachinkoLimited-BoldText";
+  src: url("https://aisforfonts.com/wp-content/uploads/2020/11/PachinkoLimited-BoldText.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "PachinkoLimited-RegularItalic";
+  src: url("https://aisforfonts.com/wp-content/uploads/2020/11/PachinkoLimited-RegularItalic.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "PachinkoLimited-BoldItalic";
+  src: url("https://aisforfonts.com/wp-content/uploads/2020/11/PachinkoLimited-BoldItalic.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "PachinkoLimited-BoldMono";
+  src: url("https://aisforfonts.com/wp-content/uploads/2020/11/PachinkoLimited-BoldMono.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "OlympeMonoHacked-Light-ok";
+  src: url("https://aisforfonts.com/wp-content/uploads/2022/02/OlympeMonoHacked-Light-ok.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "OlympeMonoHacked-Regular-ok";
+  src: url("https://aisforfonts.com/wp-content/uploads/2022/02/OlympeMonoHacked-Regular-ok.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "CalisteTextLimited-Regular";
+  src: url("https://aisforfonts.com/wp-content/uploads/2022/12/CalisteTextLimited-Regular.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "CalisteTextLimited-Semilight";
+  src: url("https://aisforfonts.com/wp-content/uploads/2022/12/CalisteTextLimited-Semilight.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "CalisteTextLimited-Medium";
+  src: url("https://aisforfonts.com/wp-content/uploads/2022/12/CalisteTextLimited-Medium.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "CalisteTextLimited-Light";
+  src: url("https://aisforfonts.com/wp-content/uploads/2022/12/CalisteTextLimited-Light.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "CalisteTextLimited-Bold";
+  src: url("https://aisforfonts.com/wp-content/uploads/2022/12/CalisteTextLimited-Bold.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "CalisteDisplayLimited-Bold";
+  src: url("https://aisforfonts.com/wp-content/uploads/2022/12/CalisteDisplayLimited-Bold.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "CalisteDisplayLimited-Light";
+  src: url("https://aisforfonts.com/wp-content/uploads/2022/12/CalisteDisplayLimited-Light.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "CalisteDisplayLimited-Medium";
+  src: url("https://aisforfonts.com/wp-content/uploads/2022/12/CalisteDisplayLimited-Medium.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "CalisteDisplayLimited-Regular";
+  src: url("https://aisforfonts.com/wp-content/uploads/2022/12/CalisteDisplayLimited-Regular.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "CalisteDisplayLimited-Semilight";
+  src: url("https://aisforfonts.com/wp-content/uploads/2022/12/CalisteDisplayLimited-Semilight.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "CalisteTextLimited-Lightitalic";
+  src: url("https://aisforfonts.com/wp-content/uploads/2023/01/CalisteTextLimited-Lightitalic.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "CalisteTextLimited-Semilightitalic";
+  src: url("https://aisforfonts.com/wp-content/uploads/2023/01/CalisteTextLimited-Semilightitalic.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "CalisteTextLimited-Regularitalic";
+  src: url("https://aisforfonts.com/wp-content/uploads/2023/01/CalisteTextLimited-Regularitalic.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "CalisteTextLimited-Mediumitalic";
+  src: url("https://aisforfonts.com/wp-content/uploads/2023/01/CalisteTextLimited-Mediumitalic.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "CalisteTextLimited-Bolditalic";
+  src: url("https://aisforfonts.com/wp-content/uploads/2023/01/CalisteTextLimited-Bolditalic.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "CalisteDisplayLimited-Lightitalic";
+  src: url("https://aisforfonts.com/wp-content/uploads/2023/01/CalisteDisplayLimited-Lightitalic.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "CalisteDisplayLimited-Semilightitalic";
+  src: url("https://aisforfonts.com/wp-content/uploads/2023/01/CalisteDisplayLimited-Semilightitalic.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "CalisteDisplayLimited-Regularitalic";
+  src: url("https://aisforfonts.com/wp-content/uploads/2023/01/CalisteDisplayLimited-Regularitalic.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "CalisteDisplayLimited-Mediumitalic";
+  src: url("https://aisforfonts.com/wp-content/uploads/2023/01/CalisteDisplayLimited-Mediumitalic.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "CalisteDisplayLimited-Bolditalic";
+  src: url("https://aisforfonts.com/wp-content/uploads/2023/01/CalisteDisplayLimited-Bolditalic.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "CalisteDisplayLimited-Black";
+  src: url("https://aisforfonts.com/wp-content/uploads/2023/01/CalisteDisplayLimited-Black.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "CalisteTextLimited-Black";
+  src: url("https://aisforfonts.com/wp-content/uploads/2023/01/CalisteTextLimited-Black.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "CalisteDisplayLimited-Blackitalic";
+  src: url("https://aisforfonts.com/wp-content/uploads/2023/01/CalisteDisplayLimited-Blackitalic.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "CalisteTextLimited-Blackitalic";
+  src: url("https://aisforfonts.com/wp-content/uploads/2023/01/CalisteTextLimited-Blackitalic.woff2") format("woff2");
+}
+
