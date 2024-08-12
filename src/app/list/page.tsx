@@ -30,7 +30,7 @@ export default function Index() {
           .map((post) => {
             return (
               <Link href={`/posts/${post.slug}`} key={post.title}>
-                <li style={{ marginTop: "4px", marginBottom: "4px" }}>
+                <li style={{ marginTop: "8px", marginBottom: "8px" }}>
                   <div
                     style={{
                       display: "flex",
@@ -39,7 +39,9 @@ export default function Index() {
                       gap: "8px",
                     }}
                   >
-                    <p>{post.title}</p>
+                    <p>
+                      {post.slug}. {post.title}
+                    </p>
                     {/* <p>{post.date}</p> */}
                   </div>
                 </li>
