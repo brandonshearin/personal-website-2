@@ -64,7 +64,7 @@ export default function Home() {
               paddingLeft: "1rem",
             }}
           >
-            <p className={lightTongari.className}>Person</p>
+            <p className={lightTongari.className}>Galaxy Troll</p>
             <p className={lightTongari.className}>San Francisco CA</p>
             <p>/ 2024</p>
           </div>
