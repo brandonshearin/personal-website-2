@@ -62,12 +62,6 @@ export default function RootLayout({
             zIndex: "10000",
           }}
         >
-          {/* <h1
-            className={mediumTongari.className}
-            style={{ fontSize: "6vw", color: "#fffff5" }}
-          >
-            Brandón
-          </h1> */}
           <Menu></Menu>
         </div>
         {children}

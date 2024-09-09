@@ -9,7 +9,7 @@ export default function HeroImage({ images }: { images: StaticImageData[] }) {
   useEffect(() => {
     const interval = setInterval(() => {
       setImgIndex((prevIndex) => (prevIndex + 1) % images.length);
-    }, 1000);
+    }, 3000);
 
     return () => clearInterval(interval); // Cleanup interval on component unmount
   }, []);

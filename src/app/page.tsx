@@ -6,6 +6,11 @@ import fs from "fs";
 import HeroImage from "./components/HeroImage";
 import posts from "./posts";
 
+const extraBoldTongari = localFont({
+  src: "./fonts/TongariDisplayLimited-Extrabold.woff2",
+  display: "swap",
+});
+
 const mediumTongari = localFont({
   src: "./fonts/TongariDisplayLimited-Medium.woff2",
   display: "swap",
@@ -13,6 +18,15 @@ const mediumTongari = localFont({
 
 const lightTongari = localFont({
   src: "./fonts/TongariDisplayLimited-Light.woff2",
+  display: "swap",
+});
+
+const grotesqueFont = localFont({
+  src: "./fonts/grotesque6-black.woff2",
+});
+
+const davidRegular = localFont({
+  src: "./fonts/david_03_regular.woff2",
   display: "swap",
 });
 
@@ -39,7 +53,7 @@ export default function Home() {
       <div
         style={{
           position: "relative",
-          height: "100vh",
+          height: "110vh",
           width: "100vw",
           top: "-100px",
         }}
@@ -49,40 +63,23 @@ export default function Home() {
         <div
           style={{
             position: "relative",
-            height: "95vh",
+            height: "110vh",
             width: "100vw",
             overflowX: "hidden",
           }}
         >
-          <div
-            style={{
-              top: "35%",
-              position: "absolute",
-              color: "#FA4639",
-              fontSize: "5vw",
-              letterSpacing: ".1rem",
-              paddingLeft: "1rem",
-            }}
-          >
-            <p className={lightTongari.className}>Galaxy Troll</p>
-            <p className={lightTongari.className}>San Francisco CA</p>
-            <p>/ 2024</p>
+          <div className="z1 absolute top-1/2 text-7xl text-white pl-4">
+            <h1 className={`${extraBoldTongari.className}`}>
+              Bran<br></br>don
+            </h1>
+            <h1 className={`pl-12  ${extraBoldTongari.className}`}>
+              She<br></br>arin*
+            </h1>
+            <div style={{}} className="text-xl pl-4">
+              <p className={mediumTongari.className}>* Galaxy Troll</p>
+              <p className={mediumTongari.className}>** San Francisco, CA</p>
+            </div>
           </div>
-
-          <p
-            className={mediumTongari.className}
-            style={{
-              position: "absolute",
-              fontSize: "18vw",
-              color: "#FA4639",
-              transform: "rotate(-18deg)",
-              top: "45%",
-              left: "-2%",
-              textWrap: "nowrap",
-            }}
-          >
-            the sofa king
-          </p>
         </div>
       </div>
 

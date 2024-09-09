@@ -24,7 +24,7 @@ export default function Menu() {
         style={{
           width: "30px",
           height: "30px",
-          backgroundColor: "black",
+          backgroundColor: "white",
           borderRadius: "50%",
         }}
       ></div>
