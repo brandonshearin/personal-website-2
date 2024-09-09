@@ -17,7 +17,9 @@ export default function ListItem({ post }: { post: PostType }) {
   return (
     <Link href={`/posts/${post.slug}`}>
       <div
-        className={davidRegular.className}
+        className={`${davidRegular.className} 
+        before-overlay
+        `}
         style={{
           display: "flex",
           flexDirection: "column",
@@ -26,19 +28,22 @@ export default function ListItem({ post }: { post: PostType }) {
       >
         <Image
           src={post.imgSrc[0]}
-          alt={"mom"}
+          alt={"post image"}
           style={{
             objectFit: "cover",
             aspectRatio: post.landscape ? "5/4" : "4/5",
             alignSelf: "center",
           }}
         ></Image>
-        <p className={davidExtralight.className} style={{ fontSize: "13px" }}>
-          {post.date}
-        </p>
-        <h3 style={{ fontSize: "1.675rem", lineHeight: "1.675rem" }}>
-          {post.title}
-        </h3>
+        <div
+          style={{ position: "absolute", top: "40%", left: "12.5%" }}
+          className="text-white"
+        >
+          <p style={{ fontSize: "24px" }}>{post.date}</p>
+          <h3 style={{ fontSize: "36px", lineHeight: "2.275rem" }}>
+            {post.title}
+          </h3>
+        </div>
       </div>
     </Link>
   );

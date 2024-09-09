@@ -27,11 +27,6 @@ export const metadata: Metadata = {
   },
 };
 
-const mediumTongari = localFont({
-  src: "./fonts/TongariDisplayLimited-Medium.woff2",
-  display: "swap",
-});
-
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -40,7 +35,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={inter.className}
+        // className={inter.className}
         style={{
           width: "100vw",
           maxWidth: "100vw",
@@ -49,21 +44,8 @@ export default function RootLayout({
         }}
       >
         {/* NOTE: devtools doesn't show this as sticky on mobile but it is. untoggle mobile to sanity check if you ever forget */}
-        <div
-          style={{
-            display: "flex",
-            position: "sticky",
-            height: "100px",
-            top: "0",
-            width: "100%",
-            padding: "24px",
-            justifyContent: "end",
-            alignItems: "center",
-            zIndex: "10000",
-          }}
-        >
-          <Menu></Menu>
-        </div>
+
+        <Menu></Menu>
         {children}
         <Analytics />
       </body>

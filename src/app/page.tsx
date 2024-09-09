@@ -45,6 +45,7 @@ function loadImages(): StaticImageData[] {
   return images;
 }
 
+// david blue rgb(69, 104, 232)
 export default function Home() {
   const images = loadImages();
 
@@ -68,7 +69,10 @@ export default function Home() {
             overflowX: "hidden",
           }}
         >
-          <div className="z1 absolute top-1/2 text-7xl text-white pl-4">
+          <div
+            className="z1 absolute top-1/2 text-7xl  pl-4"
+            style={{ color: "#FA4639" }}
+          >
             <h1 className={`${extraBoldTongari.className}`}>
               Bran<br></br>don
             </h1>
@@ -88,7 +92,7 @@ export default function Home() {
           padding: "24px",
           display: "flex",
           flexDirection: "column",
-          gap: "16px",
+          gap: "24px",
           width: "100%",
           position: "relative",
           top: "-100px",

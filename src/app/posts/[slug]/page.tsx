@@ -9,6 +9,11 @@ const exposureFont = localFont({
   display: "swap",
 });
 
+const mediumTongari = localFont({
+  src: "../../fonts/TongariDisplayLimited-Medium.woff2",
+  display: "swap",
+});
+
 const davidExtralight = localFont({
   src: "../../fonts/david_01_extralight.woff2",
   display: "swap",
@@ -38,20 +43,29 @@ export default function Post({ params }: { params: { slug: string } }) {
         flexDirection: "column",
         gap: "24px",
         marginBottom: "96px",
+        borderLeft: "16px solid #2D46CA",
+        borderRight: "16px solid #2D46CA",
       }}
     >
-      <div style={{ display: "flex", justifyContent: "space-between" }}>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "space-between",
+          fontSize: "18px",
+        }}
+        className={mediumTongari.className}
+      >
         <Link
           href={`/posts/${prevSlug}`}
           style={{ visibility: slug > 1 ? "visible" : "hidden" }}
         >
-          prev
+          older
         </Link>
         <Link
           href={`/posts/${nextSlug}`}
           style={{ visibility: slug < postsCount ? "visible" : "hidden" }}
         >
-          next
+          more recent
         </Link>
       </div>
 
