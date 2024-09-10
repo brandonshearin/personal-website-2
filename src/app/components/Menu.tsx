@@ -20,6 +20,7 @@ export default function Menu() {
   const pathname = usePathname();
 
   const isOnHomePage = pathname === "/";
+
   return (
     <>
       <div
@@ -42,15 +43,17 @@ export default function Menu() {
         }}
       >
         {isOnHomePage ? undefined : <Link href="/">home</Link>}
-        <div
-          onClick={() => setShowMenu(true)}
-          style={{
-            width: "30px",
-            height: "30px",
-            backgroundColor: pathname === "/" ? "black" : "black",
-            borderRadius: "50%",
-          }}
-        ></div>
+        <a>
+          <div
+            onClick={() => setShowMenu(true)}
+            style={{
+              width: "30px",
+              height: "30px",
+              backgroundColor: pathname === "/" ? "black" : "black",
+              borderRadius: "50%",
+            }}
+          ></div>
+        </a>
 
         {showMenu && (
           <div
@@ -61,24 +64,26 @@ export default function Menu() {
               right: 0,
               bottom: 0,
               left: 0,
+              height: "100%",
             }}
           >
-            <div
-              style={{
-                color: "#FA4639",
-                position: "absolute",
-                right: "24px",
-                fontSize: "11vw",
-              }}
-              onClick={() => setShowMenu(false)}
-            >
-              X
-            </div>
+            <a>
+              <div
+                style={{
+                  color: "#FA4639",
+                  position: "absolute",
+                  right: "24px",
+                  fontSize: "11vw",
+                }}
+                onClick={() => setShowMenu(false)}
+              >
+                X
+              </div>
+            </a>
 
             <div
               style={{
                 overflow: "auto",
-                height: "100%",
                 paddingLeft: "24px",
                 paddingRight: "24px",
                 textAlign: "center",
@@ -86,7 +91,9 @@ export default function Menu() {
                 display: "flex",
                 justifyContent: "center",
                 alignItems: "center",
+                height: "100%",
               }}
+              className="h-full md:h-1/2"
             >
               <ul
                 className={mediumTongari.className}
