@@ -21,14 +21,14 @@ const lightTongari = localFont({
   display: "swap",
 });
 
-const grotesqueFont = localFont({
-  src: "./fonts/grotesque6-black.woff2",
-});
+// const grotesqueFont = localFont({
+//   src: "./fonts/grotesque6-black.woff2",
+// });
 
-const davidRegular = localFont({
-  src: "./fonts/david_03_regular.woff2",
-  display: "swap",
-});
+// const davidRegular = localFont({
+//   src: "./fonts/david_03_regular.woff2",
+//   display: "swap",
+// });
 
 function loadImages(dir: string): StaticImageData[] {
   const imagesDir = path.join(process.cwd(), "public", "hero", dir);
@@ -46,8 +46,8 @@ function loadImages(dir: string): StaticImageData[] {
 }
 
 // david blue rgb(69, 104, 232)
-export default function Home() {
-  const images = loadImages("fade-warm");
+export default async function Home() {
+  const images = await loadImages("fade-warm");
 
   return (
     <>

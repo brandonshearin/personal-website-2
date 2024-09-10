@@ -1,4 +1,6 @@
 /** @type {import('next').NextConfig} */
+import RemarkHTML from "remark-html";
+
 const nextConfig = {
   webpack(config) {
     // Grab the existing rule that handles SVG imports
@@ -24,6 +26,23 @@ const nextConfig = {
 
     // Modify the file loader rule to ignore *.svg, since we have it handled now.
     fileLoaderRule.exclude = /\.svg$/i;
+
+    config.module.rules.push({
+      test: /\.md$/,
+      use: [
+        // {
+        //   loader: "html-loader",
+        // },
+        {
+          loader: "remark-loader",
+          options: {
+            remarkOptions: {
+              plugins: [RemarkHTML],
+            },
+          },
+        },
+      ],
+    });
 
     return config;
   },

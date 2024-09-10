@@ -6,6 +6,7 @@ import React from "react";
 
 import fs from "fs";
 import path from "path";
+import { loadImagesForPost } from "@/utils/utils";
 
 const exposureFont = localFont({
   src: "../../fonts/Exposure.ttf",
@@ -32,13 +33,6 @@ export default async function Post({ params }: { params: { slug: string } }) {
   const content = posts[params.slug];
   const postsCount = Object.keys(posts).length;
 
-  // const writing = content?.text?.split("\n").map((line, index) => (
-  //   <React.Fragment key={index}>
-  //     {line}
-  //     <br />
-  //   </React.Fragment>
-  // ));
-
   const markdownContent = await getMarkdownContent(params.slug);
   const markdownContentAsHtml = (
     <>
@@ -50,6 +44,8 @@ export default async function Post({ params }: { params: { slug: string } }) {
       ))}
     </>
   );
+
+  const images = await loadImagesForPost(params.slug);
 
   const slug = Number(params.slug);
 
@@ -131,8 +127,8 @@ export default async function Post({ params }: { params: { slug: string } }) {
             justifyContent: "center",
           }}
         >
-          {content.imgSrc.length >= 0 &&
-            content.imgSrc.slice(0).map((img, idx) => {
+          {images.length >= 0 &&
+            images.slice(0).map((img, idx) => {
               return (
                 <Image
                   key={idx}
@@ -142,7 +138,6 @@ export default async function Post({ params }: { params: { slug: string } }) {
                   style={{
                     objectFit: "cover",
                     aspectRatio: content.landscape ? "5/4" : "4/5",
-                    // margin: "0 auto",
                   }}
                 ></Image>
               );

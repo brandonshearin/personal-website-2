@@ -2,6 +2,7 @@ import Image from "next/image";
 import localFont from "next/font/local";
 import Link from "next/link";
 import { PostType } from "../posts";
+import { loadImagesForPost } from "../../utils/utils";
 
 const davidRegular = localFont({
   src: "../fonts/david_03_regular.woff2",
@@ -13,7 +14,9 @@ const davidExtralight = localFont({
   display: "swap",
 });
 
-export default function ListItem({ post }: { post: PostType }) {
+export default async function ListItem({ post }: { post: PostType }) {
+  const images = await loadImagesForPost(post.slug);
+
   return (
     <Link href={`/posts/${post.slug}`} style={{ maxWidth: "400px" }}>
       <div
@@ -27,7 +30,7 @@ export default function ListItem({ post }: { post: PostType }) {
         }}
       >
         <Image
-          src={post.imgSrc[0]}
+          src={images[0]}
           alt={"post image"}
           style={{
             objectFit: "cover",
