@@ -35,8 +35,10 @@ export default function Menu() {
           justifyContent: isOnHomePage ? "end" : "space-between",
           alignItems: "center",
           zIndex: "10000",
-          borderLeft: isOnHomePage ? undefined : "16px solid #2D46CA",
-          borderRight: isOnHomePage ? undefined : "16px solid #2D46CA",
+          borderLeft: isOnHomePage ? undefined : "16px solid rgb(69, 104, 232)",
+          borderRight: isOnHomePage
+            ? undefined
+            : "16px solid rgb(69, 104, 232)",
         }}
       >
         {isOnHomePage ? undefined : <Link href="/">home</Link>}

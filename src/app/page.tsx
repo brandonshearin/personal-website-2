@@ -90,12 +90,16 @@ export default function Home() {
       <div
         style={{
           padding: "24px",
-          display: "flex",
-          flexDirection: "column",
-          gap: "24px",
-          width: "100%",
+          maxWidth: "1200px",
           position: "relative",
           top: "-100px",
+          margin: "0 auto",
+
+          display: "flex",
+          gap: "24px",
+          justifyContent: "center",
+          alignItems: "baseline",
+          flexWrap: "wrap",
         }}
       >
         {Object.values(posts)

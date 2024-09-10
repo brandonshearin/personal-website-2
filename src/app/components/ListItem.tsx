@@ -15,7 +15,7 @@ const davidExtralight = localFont({
 
 export default function ListItem({ post }: { post: PostType }) {
   return (
-    <Link href={`/posts/${post.slug}`}>
+    <Link href={`/posts/${post.slug}`} style={{ maxWidth: "400px" }}>
       <div
         className={`${davidRegular.className} 
         before-overlay

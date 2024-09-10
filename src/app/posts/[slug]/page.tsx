@@ -36,93 +36,98 @@ export default function Post({ params }: { params: { slug: string } }) {
   const nextSlug = slug + 1;
 
   return (
-    <div
-      style={{
-        padding: "24px",
-        display: "flex",
-        flexDirection: "column",
-        gap: "24px",
-        marginBottom: "96px",
-        borderLeft: "16px solid #2D46CA",
-        borderRight: "16px solid #2D46CA",
-      }}
-    >
+    <div style={{ width: "100%" }}>
       <div
+        className="border-x-[16px] border-customBlue md:border-0"
         style={{
+          padding: "24px",
           display: "flex",
-          justifyContent: "space-between",
-          fontSize: "18px",
+          flexDirection: "column",
+          gap: "24px",
+          marginBottom: "96px",
+          maxWidth: "850px",
+          margin: "0 auto",
+          boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2)",
+          transition: "0.3s",
         }}
-        className={mediumTongari.className}
       >
-        <Link
-          href={`/posts/${prevSlug}`}
-          style={{ visibility: slug > 1 ? "visible" : "hidden" }}
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "space-between",
+            fontSize: "18px",
+          }}
+          className={mediumTongari.className}
         >
-          older
-        </Link>
-        <Link
-          href={`/posts/${nextSlug}`}
-          style={{ visibility: slug < postsCount ? "visible" : "hidden" }}
+          <Link
+            href={`/posts/${prevSlug}`}
+            style={{ visibility: slug > 1 ? "visible" : "hidden" }}
+          >
+            older
+          </Link>
+          <Link
+            href={`/posts/${nextSlug}`}
+            style={{ visibility: slug < postsCount ? "visible" : "hidden" }}
+          >
+            more recent
+          </Link>
+        </div>
+        <p
+          className={`${exposureFont.className} hover-variable-settings`}
+          style={{
+            fontSize: "60px",
+            fontStyle: "normal",
+            fontWeight: "400",
+            lineHeight: "90%",
+            letterSpacing: "-1.7px",
+            color: "#2D46CA",
+          }}
         >
-          more recent
-        </Link>
+          {content.title}
+        </p>
+        <p
+          className={davidExtralight.className}
+          style={{
+            fontSize: "18px",
+          }}
+        >
+          {content.date}
+        </p>
+        <p
+          className={davidExtralight.className}
+          style={{
+            fontSize: "18px",
+          }}
+        >
+          {writing}
+        </p>
+
+        <div
+          style={{
+            display: "flex",
+            flexWrap: "wrap",
+            gap: "4px",
+            justifyContent: "center",
+          }}
+        >
+          {content.imgSrc.length >= 0 &&
+            content.imgSrc.slice(0).map((img, idx) => {
+              return (
+                <Image
+                  key={idx}
+                  src={img}
+                  alt={content.title}
+                  height={300}
+                  style={{
+                    objectFit: "cover",
+                    aspectRatio: content.landscape ? "5/4" : "4/5",
+                    // margin: "0 auto",
+                  }}
+                ></Image>
+              );
+            })}
+        </div>
       </div>
-
-      <Image
-        src={content.imgSrc[0]}
-        alt={"mom"}
-        height={460}
-        style={{
-          objectFit: "cover",
-          aspectRatio: content.landscape ? "5/4" : "4/5",
-        }}
-      ></Image>
-      <p
-        className={`${exposureFont.className} hover-variable-settings`}
-        style={{
-          fontSize: "60px",
-          fontStyle: "normal",
-          fontWeight: "400",
-          lineHeight: "90%",
-          letterSpacing: "-1.7px",
-          color: "#2D46CA",
-        }}
-      >
-        {content.title}
-      </p>
-      <p
-        className={davidExtralight.className}
-        style={{
-          fontSize: "18px",
-        }}
-      >
-        {content.date}
-      </p>
-      <p
-        className={davidExtralight.className}
-        style={{
-          fontSize: "18px",
-        }}
-      >
-        {writing}
-      </p>
-
-      {content.imgSrc.length > 1 &&
-        content.imgSrc.slice(1).map((img, idx) => {
-          return (
-            <Image
-              key={idx}
-              src={img}
-              alt={content.title}
-              height={460}
-              style={{
-                objectFit: "cover",
-                aspectRatio: content.landscape ? "5/4" : "4/5",
-              }}
-            ></Image>
-          );
-        })}
     </div>
   );
 }
