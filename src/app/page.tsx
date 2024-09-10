@@ -30,8 +30,8 @@ const davidRegular = localFont({
   display: "swap",
 });
 
-function loadImages(): StaticImageData[] {
-  const imagesDir = path.join(process.cwd(), "public/hero/fade-warm");
+function loadImages(dir: string): StaticImageData[] {
+  const imagesDir = path.join(process.cwd(), "public", "hero", dir);
   const imageFiles = fs.readdirSync(imagesDir);
 
   // Filter out non-image files if necessary, e.g., only `.jpg`, `.png`
@@ -47,7 +47,7 @@ function loadImages(): StaticImageData[] {
 
 // david blue rgb(69, 104, 232)
 export default function Home() {
-  const images = loadImages();
+  const images = loadImages("fade-warm");
 
   return (
     <>

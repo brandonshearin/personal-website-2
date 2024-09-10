@@ -20,6 +20,7 @@ export default function HeroImage({ images }: { images: StaticImageData[] }) {
       src={images[imgIndex]}
       placeholder="blur"
       quality={100}
+      priority
       fill
       style={{
         objectFit: "cover",

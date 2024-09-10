@@ -4,6 +4,9 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
+import fs from "fs";
+import path from "path";
+
 const exposureFont = localFont({
   src: "../../fonts/Exposure.ttf",
   display: "swap",
@@ -19,16 +22,34 @@ const davidExtralight = localFont({
   display: "swap",
 });
 
-export default function Post({ params }: { params: { slug: string } }) {
+async function getMarkdownContent(dir: string) {
+  const filePath = path.join(process.cwd(), "public", dir, `${dir}.md`);
+  const fileContents = fs.readFileSync(filePath, "utf8");
+  return fileContents;
+}
+
+export default async function Post({ params }: { params: { slug: string } }) {
   const content = posts[params.slug];
   const postsCount = Object.keys(posts).length;
 
-  const writing = content?.text?.split("\n").map((line, index) => (
-    <React.Fragment key={index}>
-      {line}
-      <br />
-    </React.Fragment>
-  ));
+  // const writing = content?.text?.split("\n").map((line, index) => (
+  //   <React.Fragment key={index}>
+  //     {line}
+  //     <br />
+  //   </React.Fragment>
+  // ));
+
+  const markdownContent = await getMarkdownContent(params.slug);
+  const markdownContentAsHtml = (
+    <>
+      {markdownContent.split("\n").map((line, index) => (
+        <React.Fragment key={index}>
+          {line}
+          <br />
+        </React.Fragment>
+      ))}
+    </>
+  );
 
   const slug = Number(params.slug);
 
@@ -63,13 +84,13 @@ export default function Post({ params }: { params: { slug: string } }) {
             href={`/posts/${prevSlug}`}
             style={{ visibility: slug > 1 ? "visible" : "hidden" }}
           >
-            older
+            {"<< older"}
           </Link>
           <Link
             href={`/posts/${nextSlug}`}
             style={{ visibility: slug < postsCount ? "visible" : "hidden" }}
           >
-            more recent
+            {"more recent >>"}
           </Link>
         </div>
         <p
@@ -99,7 +120,7 @@ export default function Post({ params }: { params: { slug: string } }) {
             fontSize: "18px",
           }}
         >
-          {writing}
+          {markdownContentAsHtml}
         </p>
 
         <div
