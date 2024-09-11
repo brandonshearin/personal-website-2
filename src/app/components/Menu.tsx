@@ -64,8 +64,9 @@ export default function Menu() {
               right: 0,
               bottom: 0,
               left: 0,
-              height: "100%",
+              // height: "100%",
             }}
+            className="sm:h-full md:h-1/2"
           >
             <a>
               <div
@@ -86,18 +87,16 @@ export default function Menu() {
                 overflow: "auto",
                 paddingLeft: "24px",
                 paddingRight: "24px",
-                textAlign: "center",
                 backgroundColor: "#fffff5",
                 display: "flex",
-                justifyContent: "center",
                 alignItems: "center",
                 height: "100%",
               }}
-              className="h-full md:h-1/2"
+              className="text-center md:text-left justify-center md:justify-start"
             >
               <ul
-                className={mediumTongari.className}
-                style={{ fontSize: "13vw", color: "#FA4639" }}
+                className={`${mediumTongari.className} text-[13vw] md:text-[7vw]`}
+                style={{ color: "#FA4639" }}
               >
                 <li>
                   <Link href="/" onClick={() => setShowMenu(false)}>
@@ -127,25 +126,19 @@ export default function Menu() {
             </div>
 
             <div
-              className={davidRegular.className}
+              className={`${davidRegular.className} text-center md:text-left`}
               style={{
                 position: "absolute",
-                bottom: "65px",
+                bottom: "32px",
                 left: 0,
                 right: 0,
                 color: "#FA4639",
-                textAlign: "center",
-                fontSize: "13px",
+                paddingLeft: "24px",
+                fontSize: "20px",
               }}
             >
-              <p style={{ marginBottom: "8px" }}>
-                holla at me @ bshearin15@gmail.com
-              </p>
-
-              <p>
-                *site intended for mobile devices only. on desktop will look
-                pitiful
-              </p>
+              <p style={{}}>holla at me @</p>
+              <p style={{ marginBottom: "8px" }}>bshearin15@gmail.com</p>
             </div>
           </div>
         )}
