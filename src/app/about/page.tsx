@@ -45,7 +45,7 @@ export default function About() {
       <br />
 
       <p className={davidExtralight.className} style={{ fontSize: "28px" }}>
-        {`im interested how we feel more comfortable sharing pictures than we do our words. it is a very easy thing to share pictures that make us appear invincible and very impressive. i am finding it much harder to share words that essentially achieve the exact opposite. we haven't been trained for this kind of expression.`}
+        {`im interested in how we feel more comfortable sharing pictures than we do our words. it is a very easy thing to share pictures that make us appear invincible and very impressive. i am finding it much harder to share words that essentially achieve the exact opposite. we haven't been trained for this kind of expression.`}
       </p>
       <br />
 
