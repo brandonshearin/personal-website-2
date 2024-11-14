@@ -87,7 +87,7 @@ export default async function Home() {
         </div>
       </div>
 
-      <div
+      {/* <div
         style={{
           padding: "24px",
           maxWidth: "1200px",
@@ -105,9 +105,10 @@ export default async function Home() {
         {Object.values(posts)
           .reverse()
           .map((row) => {
-            return <ListItem key={row.title} post={row} />;
+            return <></>;
+            // return <ListItem key={row.title} post={row} />;
           })}
-      </div>
+      </div> */}
     </>
   );
 }

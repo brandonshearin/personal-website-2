@@ -34,7 +34,7 @@ export default function About() {
       >
         About
       </p>
-      <p className={davidExtralight.className} style={{ fontSize: "18px" }}>
+      {/* <p className={davidExtralight.className} style={{ fontSize: "18px" }}>
         {`in my five years in the fantasy land of san francisco i haven't done too much. on a typical day i might be walking up the beautiful hills looking at the jumble of buildings, waiting for the world to show me something. sometimes i try to explain what happens in a notebook. future me will find it pleasant to re-read and reconnect with all the transient emotions and first-times and confusing things.  moments that will never be again. as an activity, writing slows me down. a verbal discussion is nice but happens at a pace so much faster and then i forget most of what is said. i like to write about the interesting things people say. it takes a lot of effort and memory to recall the good qualities a person has or things they said. clearly i must sound like someone who has been working remotely for too long and is losing his superior mental facilities.`}
       </p>
       <br />
@@ -62,7 +62,7 @@ export default function About() {
           here
         </a>
         .
-      </p>
+      </p> */}
       <br />
     </div>
   );

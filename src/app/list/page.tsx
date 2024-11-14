@@ -28,6 +28,7 @@ export default function Index() {
         {Object.values(posts)
           .reverse()
           .map((post) => {
+            return <></>;
             return (
               <Link href={`/posts/${post.slug}`} key={post.title}>
                 <li style={{ marginTop: "8px", marginBottom: "8px" }}>
