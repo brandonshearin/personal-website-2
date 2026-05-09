@@ -61,6 +61,172 @@ a, button {
   font-variation-settings: "EXPO" -100;
 }
 
+/* Cut-paper shape drift — gentle, asynchronous loops so shapes never move in lockstep */
+@keyframes cut-drift-1 {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  50%      { transform: translate(8px, -5px) rotate(0.6deg); }
+}
+@keyframes cut-drift-2 {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  50%      { transform: translate(-6px, 4px) rotate(0.4deg); }
+}
+@keyframes cut-drift-3 {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  50%      { transform: translate(5px, 6px) rotate(-0.5deg); }
+}
+@keyframes cut-drift-4 {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  50%      { transform: translate(-4px, -4px) rotate(0.4deg); }
+}
+@keyframes cut-drift-5 {
+  0%, 100% { transform: translate(0, 0); }
+  50%      { transform: translate(3px, 5px); }
+}
+
+.cut-shape-drift-1 { animation: cut-drift-1 11s ease-in-out infinite; transform-origin: center; transform-box: fill-box; }
+.cut-shape-drift-2 { animation: cut-drift-2 14s ease-in-out infinite; transform-origin: center; transform-box: fill-box; }
+.cut-shape-drift-3 { animation: cut-drift-3  9s ease-in-out infinite; transform-origin: center; transform-box: fill-box; }
+.cut-shape-drift-4 { animation: cut-drift-4 13s ease-in-out infinite; transform-origin: center; transform-box: fill-box; }
+.cut-shape-drift-5 { animation: cut-drift-5 16s ease-in-out infinite; transform-origin: center; transform-box: fill-box; }
+
+@media (prefers-reduced-motion: reduce) {
+  .cut-shape-drift-1,
+  .cut-shape-drift-2,
+  .cut-shape-drift-3,
+  .cut-shape-drift-4,
+  .cut-shape-drift-5 {
+    animation: none;
+  }
+}
+
+/* Menu trigger — cut-paper sign in vermillion, slight tilt, lifts on hover */
+.menu-trigger-sign {
+  display: inline-block;
+  padding: 9px 16px;
+  background: #DD2D1F;
+  color: #FFFFF5;
+  font-size: 13px;
+  letter-spacing: 0.05em;
+  line-height: 1.2;
+  border: none;
+  border-radius: 0;
+  transform: rotate(2deg);
+  box-shadow: 1px 2px 0 rgba(19, 19, 19, 0.18);
+  transition: transform 200ms ease, box-shadow 200ms ease;
+}
+.menu-trigger-sign:hover,
+.menu-trigger-sign:focus-visible {
+  transform: rotate(3deg) translateY(-1px);
+  box-shadow: 2px 4px 0 rgba(19, 19, 19, 0.22);
+  outline: none;
+}
+.menu-trigger-sign:active {
+  transform: rotate(1deg) translateY(1px);
+  box-shadow: 1px 1px 0 rgba(19, 19, 19, 0.22);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .menu-trigger-sign,
+  .menu-trigger-sign:hover,
+  .menu-trigger-sign:focus-visible,
+  .menu-trigger-sign:active {
+    transition: none;
+  }
+}
+
+/* Index page essay entry — title shifts to the post's accent color on hover.
+   Each entry sets --accent inline; this rule reads it, falling back to vermillion. */
+.essay-entry .essay-title {
+  transition: color 200ms ease;
+}
+.essay-entry:hover .essay-title,
+.essay-entry:focus-visible .essay-title {
+  color: var(--accent, #DD2D1F);
+}
+.essay-entry:focus-visible {
+  outline: none;
+}
+
+/* Post detail prev/next links — slight shift toward the post's accent on hover.
+   Inherits --accent if set on a parent, otherwise vermillion. */
+.post-nav-link {
+  transition: color 200ms ease;
+}
+.post-nav-link:hover,
+.post-nav-link:focus-visible {
+  color: var(--accent, #DD2D1F);
+  outline: none;
+}
+
+.post-markdown p {
+  margin: 0 0 1.1em 0;
+}
+.post-markdown h1,
+.post-markdown h2,
+.post-markdown h3,
+.post-markdown h4,
+.post-markdown h5,
+.post-markdown h6 {
+  color: var(--accent, #DD2D1F);
+  font-family: "CalisteDisplayLimited-Bold", "Cormorant Garamond", Georgia, serif;
+  font-weight: 700;
+  line-height: 1.1;
+  margin: 1.5em 0 0.45em 0;
+}
+.post-markdown h1 {
+  font-size: clamp(32px, 5vw, 48px);
+}
+.post-markdown h2 {
+  font-size: clamp(26px, 4vw, 36px);
+}
+.post-markdown h3 {
+  font-size: clamp(22px, 3vw, 28px);
+}
+.post-markdown h4,
+.post-markdown h5,
+.post-markdown h6 {
+  font-size: clamp(17px, 2vw, 20px);
+}
+.post-markdown h6 {
+  color: rgba(19, 19, 19, 0.58);
+  font-family: "PachinkoLimited-RegularMono", ui-monospace, SFMono-Regular, monospace;
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.post-markdown a {
+  color: var(--accent, #DD2D1F);
+  text-decoration: underline;
+  text-decoration-thickness: 0.06em;
+  text-underline-offset: 0.18em;
+}
+.post-markdown ul,
+.post-markdown ol {
+  margin: 0 0 1.1em 1.25em;
+  padding: 0;
+}
+.post-markdown li {
+  margin: 0.35em 0;
+}
+.post-markdown blockquote {
+  border-left: 3px solid var(--accent, #DD2D1F);
+  color: rgba(19, 19, 19, 0.74);
+  margin: 1.5em 0;
+  padding: 0.15em 0 0.15em 1em;
+}
+.post-markdown code {
+  font-family: "PachinkoLimited-RegularMono", ui-monospace, SFMono-Regular, monospace;
+  font-size: 0.86em;
+}
+.post-markdown pre {
+  background: rgba(19, 19, 19, 0.06);
+  overflow-x: auto;
+  padding: 14px;
+}
+.post-markdown pre code {
+  font-size: 0.82em;
+}
+
 @font-face {
   font-family: "Emilieshand-Regular";
   src: url("https://aisforfonts.com/wp-content/uploads/2020/03/Emilieshand-Regular.woff") format("woff");
@@ -605,4 +771,3 @@ a, button {
   font-family: "CalisteTextLimited-Blackitalic";
   src: url("https://aisforfonts.com/wp-content/uploads/2023/01/CalisteTextLimited-Blackitalic.woff2") format("woff2");
 }
-

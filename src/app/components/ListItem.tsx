@@ -16,6 +16,7 @@ const davidExtralight = localFont({
 
 export default async function ListItem({ post }: { post: PostType }) {
   const images = await loadImagesForPost(post.slug);
+  const image = images[0];
 
   return (
     <Link href={`/posts/${post.slug}`} style={{ maxWidth: "400px" }}>
@@ -29,15 +30,26 @@ export default async function ListItem({ post }: { post: PostType }) {
           gap: "4px",
         }}
       >
-        <Image
-          src={images[0]}
-          alt={"post image"}
+        <div
           style={{
-            objectFit: "cover",
+            position: "relative",
             aspectRatio: post.landscape ? "5/4" : "4/5",
-            alignSelf: "center",
+            width: "100%",
+            overflow: "hidden",
           }}
-        ></Image>
+        >
+          {image && (
+            <Image
+              src={image}
+              alt={"post image"}
+              fill
+              sizes="400px"
+              style={{
+                objectFit: "cover",
+              }}
+            />
+          )}
+        </div>
         <div
           style={{ position: "absolute", top: "40%", left: "12.5%" }}
           className="text-white"

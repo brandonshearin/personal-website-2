@@ -20,13 +20,14 @@ export default function Menu() {
   const pathname = usePathname();
 
   const isOnHomePage = pathname === "/";
+  const isOnPostPage = pathname?.startsWith("/posts/") ?? false;
+  const backHref = isOnPostPage ? "/list" : "/";
+  const backLabel = isOnPostPage ? "← index" : "← home";
 
   return (
     <>
       <div
-        className={mediumTongari.className}
         style={{
-          fontSize: "24px",
           display: "flex",
           position: "sticky",
           height: "100px",
@@ -36,24 +37,35 @@ export default function Menu() {
           justifyContent: isOnHomePage ? "end" : "space-between",
           alignItems: "center",
           zIndex: "10000",
-          borderLeft: isOnHomePage ? undefined : "16px solid rgb(69, 104, 232)",
-          borderRight: isOnHomePage
-            ? undefined
-            : "16px solid rgb(69, 104, 232)",
         }}
       >
-        {isOnHomePage ? undefined : <Link href="/">home</Link>}
-        <a>
-          <div
-            onClick={() => setShowMenu(true)}
+        {isOnHomePage ? undefined : (
+          <Link
+            href={backHref}
             style={{
-              width: "30px",
-              height: "30px",
-              backgroundColor: pathname === "/" ? "black" : "black",
-              borderRadius: "50%",
+              fontFamily:
+                '"PachinkoLimited-RegularMono", ui-monospace, SFMono-Regular, monospace',
+              fontSize: "13px",
+              color: "rgba(19, 19, 19, 0.7)",
+              letterSpacing: "0.05em",
+              textDecoration: "none",
             }}
-          ></div>
-        </a>
+          >
+            {backLabel}
+          </Link>
+        )}
+        <button
+          type="button"
+          onClick={() => setShowMenu(true)}
+          aria-label="Open menu"
+          className="menu-trigger-sign"
+          style={{
+            fontFamily:
+              '"PachinkoLimited-RegularMono", ui-monospace, SFMono-Regular, monospace',
+          }}
+        >
+          menu*
+        </button>
 
         {showMenu && (
           <div

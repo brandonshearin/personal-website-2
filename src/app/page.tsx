@@ -1,114 +1,116 @@
-import { StaticImageData } from "next/image";
 import localFont from "next/font/local";
-import ListItem from "./components/ListItem";
 import path from "path";
 import fs from "fs";
 import HeroImage from "./components/HeroImage";
-import posts from "./posts";
+import CutPaperShapes from "./components/CutPaperShapes";
 
 const extraBoldTongari = localFont({
   src: "./fonts/TongariDisplayLimited-Extrabold.woff2",
   display: "swap",
 });
 
-const mediumTongari = localFont({
-  src: "./fonts/TongariDisplayLimited-Medium.woff2",
-  display: "swap",
-});
-
-const lightTongari = localFont({
-  src: "./fonts/TongariDisplayLimited-Light.woff2",
-  display: "swap",
-});
-
-// const grotesqueFont = localFont({
-//   src: "./fonts/grotesque6-black.woff2",
-// });
-
-// const davidRegular = localFont({
-//   src: "./fonts/david_03_regular.woff2",
-//   display: "swap",
-// });
-
-function loadImages(dir: string): StaticImageData[] {
+function loadImages(dir: string): string[] {
   const imagesDir = path.join(process.cwd(), "public", "hero", dir);
   const imageFiles = fs.readdirSync(imagesDir);
 
-  // Filter out non-image files if necessary, e.g., only `.jpg`, `.png`
-  const supportedExtensions = [".jpg", ".jpeg", ".png", ".webp"]; // Add more as needed
+  const supportedExtensions = [".jpg", ".jpeg", ".png", ".webp"];
   const images = imageFiles
     .filter((file) =>
       supportedExtensions.includes(path.extname(file).toLowerCase())
     )
-    .map((file) => require(`../../public/hero/fade-warm/${file}`));
+    .sort()
+    .map((file) => `/hero/${dir}/${file}`);
 
   return images;
 }
 
-// david blue rgb(69, 104, 232)
 export default async function Home() {
   const images = await loadImages("fade-warm");
 
   return (
-    <>
+    <div
+      style={{
+        position: "relative",
+        height: "100vh",
+        width: "100vw",
+        marginTop: "-100px",
+        overflow: "hidden",
+      }}
+    >
+      <HeroImage images={images} />
+
+      <CutPaperShapes />
+
       <div
         style={{
-          position: "relative",
-          height: "110vh",
-          width: "100vw",
-          top: "-100px",
+          position: "absolute",
+          inset: 0,
+          padding: "12vh 6vw 10vh 6vw",
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "flex-end",
+          zIndex: 3,
+          pointerEvents: "none",
         }}
       >
-        <HeroImage images={images} />
+        <div>
+          <h1
+            className={extraBoldTongari.className}
+            style={{
+              fontSize: "clamp(72px, 14vw, 200px)",
+              lineHeight: 0.82,
+              letterSpacing: "-0.04em",
+              color: "#FFFFF5",
+              margin: 0,
+              textTransform: "uppercase",
+            }}
+          >
+            BRAN
+          </h1>
+          <h1
+            style={{
+              fontFamily: '"Coline1-Bold", Georgia, serif',
+              fontSize: "clamp(76px, 15vw, 220px)",
+              lineHeight: 0.82,
+              letterSpacing: "-0.03em",
+              color: "#FFFFF5",
+              margin: "-0.04em 0 0 0",
+              textTransform: "uppercase",
+            }}
+          >
+            DON
+          </h1>
+        </div>
 
         <div
           style={{
-            position: "relative",
-            height: "110vh",
-            width: "100vw",
-            overflowX: "hidden",
+            fontFamily: '"Emilieshand-Regular", "Caveat", cursive',
+            fontSize: "clamp(64px, 12vw, 170px)",
+            lineHeight: 0.95,
+            color: "#131313",
+            transform: "rotate(-3deg)",
+            transformOrigin: "left center",
+            margin: "0.1em 0 0 12vw",
           }}
         >
-          <div
-            className="z1 absolute top-1/2 text-7xl  pl-4"
-            style={{ color: "#FA4639" }}
-          >
-            <h1 className={`${extraBoldTongari.className}`}>
-              Bran<br></br>don
-            </h1>
-            <h1 className={`pl-12  ${extraBoldTongari.className}`}>
-              She<br></br>arin*
-            </h1>
-            <div style={{}} className="text-xl pl-4">
-              <p className={mediumTongari.className}>* Galaxy Troll</p>
-              <p className={mediumTongari.className}>** San Francisco, CA</p>
-            </div>
-          </div>
+          Shearin*
+        </div>
+
+        <div
+          style={{
+            fontFamily:
+              '"PachinkoLimited-RegularMono", ui-monospace, SFMono-Regular, monospace',
+            fontSize: "clamp(11px, 1.1vw, 14px)",
+            color: "rgba(255, 255, 245, 0.78)",
+            letterSpacing: "0.05em",
+            marginTop: "1.6em",
+            lineHeight: 1.6,
+          }}
+        >
+          <p style={{ margin: 0 }}>* galaxy troll</p>
+          <p style={{ margin: 0 }}>** san francisco, ca</p>
         </div>
       </div>
-
-      {/* <div
-        style={{
-          padding: "24px",
-          maxWidth: "1200px",
-          position: "relative",
-          top: "-100px",
-          margin: "0 auto",
-
-          display: "flex",
-          gap: "24px",
-          justifyContent: "center",
-          alignItems: "baseline",
-          flexWrap: "wrap",
-        }}
-      >
-        {Object.values(posts)
-          .reverse()
-          .map((row) => {
-            return <></>;
-            // return <ListItem key={row.title} post={row} />;
-          })}
-      </div> */}
-    </>
+    </div>
   );
 }
