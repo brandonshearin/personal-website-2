@@ -56,7 +56,7 @@ export default function Index() {
           margin: "8px 0 48px 0",
         }}
       >
-        * essays from san francisco, 2024–
+        * essays from me, 2024–
       </p>
 
       <ol
