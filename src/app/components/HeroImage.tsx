@@ -54,6 +54,7 @@ export default function HeroImage({ images }: { images: string[] }) {
       style={{
         position: "absolute",
         inset: 0,
+        zIndex: 0,
       }}
     >
       {layerIndexes.map((index) => {
@@ -72,6 +73,7 @@ export default function HeroImage({ images }: { images: string[] }) {
             style={{
               objectFit: "cover",
               objectPosition: "center",
+              filter: "saturate(0.82) contrast(0.92) brightness(0.9)",
               opacity: isActive ? 1 : 0,
               pointerEvents: "none",
               transition: `opacity ${FADE_DURATION_MS}ms ease-in-out`,
@@ -81,6 +83,28 @@ export default function HeroImage({ images }: { images: string[] }) {
           />
         );
       })}
+      <div
+        style={{
+          position: "absolute",
+          inset: 0,
+          background:
+            "linear-gradient(180deg, rgba(255, 255, 245, 0.14) 0%, rgba(255, 255, 245, 0.02) 42%, rgba(19, 19, 19, 0.24) 100%), linear-gradient(35deg, rgba(221, 45, 31, 0.12) 0%, rgba(231, 181, 58, 0.08) 48%, rgba(27, 63, 140, 0.1) 100%)",
+          mixBlendMode: "soft-light",
+          pointerEvents: "none",
+          zIndex: 3,
+        }}
+      />
+      <div
+        style={{
+          position: "absolute",
+          inset: 0,
+          background:
+            "radial-gradient(circle at 22% 18%, rgba(255, 255, 245, 0.12), transparent 28%), linear-gradient(0deg, rgba(221, 45, 31, 0.16), transparent 38%)",
+          pointerEvents: "none",
+          zIndex: 4,
+        }}
+      />
+      <div className="hero-print-grain" />
     </div>
   );
 }

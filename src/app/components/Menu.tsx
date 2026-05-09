@@ -115,7 +115,8 @@ export default function Menu() {
               inset: 0,
               backgroundColor: PAPER,
               color: INK,
-              overflow: "hidden",
+              overflowX: "hidden",
+              overflowY: "auto",
             }}
             role="dialog"
             aria-modal="true"
