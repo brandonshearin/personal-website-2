@@ -16,7 +16,7 @@ function loadImages(dir: string): string[] {
   const supportedExtensions = [".jpg", ".jpeg", ".png", ".webp"];
   const images = imageFiles
     .filter((file) =>
-      supportedExtensions.includes(path.extname(file).toLowerCase())
+      supportedExtensions.includes(path.extname(file).toLowerCase()),
     )
     .sort()
     .map((file) => `/hero/${dir}/${file}`);
@@ -107,8 +107,8 @@ export default async function Home() {
             lineHeight: 1.6,
           }}
         >
-          <p style={{ margin: 0 }}>* galaxy troll</p>
-          <p style={{ margin: 0 }}>** san francisco, ca</p>
+          {/* <p style={{ margin: 0 }}>* galaxy troll</p> */}
+          <p style={{ margin: 0 }}>* san francisco, ca</p>
         </div>
       </div>
     </div>

@@ -1,19 +1,58 @@
 "use client";
 
-import localFont from "next/font/local";
+import type { CSSProperties } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
+import { ACCENT_COLORS } from "@/app/posts";
 
-const mediumTongari = localFont({
-  src: "../fonts/TongariDisplayLimited-Medium.woff2",
-  display: "swap",
-});
+const INK = "#131313";
+const PAPER = "#FFFFF5";
+const PALE_JADE = "rgba(45, 143, 78, 0.18)";
+const monoStack =
+  '"PachinkoLimited-RegularMono", ui-monospace, SFMono-Regular, monospace';
+const noteStack =
+  '"CalisteTextLimited-Regularitalic", "CalisteTextLimited-Regular", Georgia, serif';
 
-const davidRegular = localFont({
-  src: "../fonts/david_03_regular.woff2",
-  display: "swap",
-});
+const menuItems = [
+  {
+    label: "home*",
+    href: "/",
+    background: ACCENT_COLORS.vermillion,
+    color: PAPER,
+    width: "320px",
+    rotate: "-1.5deg",
+    marginLeft: "0px",
+  },
+  {
+    label: "index*",
+    href: "/list",
+    background: ACCENT_COLORS.cobalt,
+    color: PAPER,
+    width: "360px",
+    rotate: "1deg",
+    marginLeft: "78px",
+  },
+  {
+    label: "about*",
+    href: "/about",
+    background: ACCENT_COLORS.ochre,
+    color: INK,
+    width: "360px",
+    rotate: "-0.8deg",
+    marginLeft: "35px",
+  },
+  {
+    label: "instagram*",
+    href: "https://www.instagram.com/brandon__shearin/",
+    background: ACCENT_COLORS.jade,
+    color: PAPER,
+    width: "525px",
+    rotate: "1.4deg",
+    marginLeft: "110px",
+    external: true,
+  },
+];
 
 export default function Menu() {
   const [showMenu, setShowMenu] = useState(false);
@@ -69,88 +108,84 @@ export default function Menu() {
 
         {showMenu && (
           <div
+            className="menu-overlay"
             style={{
               zIndex: 10000,
               position: "fixed",
-              top: 0,
-              right: 0,
-              bottom: 0,
-              left: 0,
-              // height: "100%",
+              inset: 0,
+              backgroundColor: PAPER,
+              color: INK,
+              overflow: "hidden",
             }}
-            className="sm:h-full md:h-1/2"
+            role="dialog"
+            aria-modal="true"
+            aria-label="Site menu"
           >
-            <a>
-              <div
-                style={{
-                  color: "#FA4639",
-                  position: "absolute",
-                  right: "24px",
-                  fontSize: "11vw",
-                }}
-                onClick={() => setShowMenu(false)}
-              >
-                X
-              </div>
-            </a>
+            <button
+              type="button"
+              className="menu-close-sign"
+              onClick={() => setShowMenu(false)}
+              aria-label="Close menu"
+              style={{ fontFamily: monoStack }}
+            >
+              × close
+            </button>
 
             <div
-              style={{
-                overflow: "auto",
-                paddingLeft: "24px",
-                paddingRight: "24px",
-                backgroundColor: "#fffff5",
-                display: "flex",
-                alignItems: "center",
-                height: "100%",
-              }}
-              className="text-center md:text-left justify-center md:justify-start"
-            >
+              aria-hidden
+              className="menu-pale-cutout cut-shape-drift-5"
+              style={{ background: PALE_JADE }}
+            />
+
+            <nav aria-label="Primary navigation" className="menu-paper-nav">
               <ul
-                className={`${mediumTongari.className} text-[13vw] md:text-[7vw]`}
-                style={{ color: "#FA4639" }}
+                style={{
+                  listStyle: "none",
+                  margin: 0,
+                  padding: 0,
+                }}
               >
-                <li>
-                  <Link href="/" onClick={() => setShowMenu(false)}>
-                    HOME
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/list" onClick={() => setShowMenu(false)}>
-                    INDEX
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/about" onClick={() => setShowMenu(false)}>
-                    ABOUT
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="https://www.instagram.com/brandonshearin__/"
-                    target="__blank"
-                    onClick={() => setShowMenu(false)}
+                {menuItems.map((item) => (
+                  <li
+                    key={item.href}
+                    className="menu-paper-item"
+                    style={
+                      {
+                        "--paper-width": item.width,
+                        "--paper-rotate": item.rotate,
+                        "--paper-margin-left": item.marginLeft,
+                      } as CSSProperties
+                    }
                   >
-                    INSTAGRAM
-                  </Link>
-                </li>
+                    <Link
+                      href={item.href}
+                      target={item.external ? "_blank" : undefined}
+                      rel={item.external ? "noreferrer" : undefined}
+                      onClick={() => setShowMenu(false)}
+                      className="menu-paper-link"
+                      style={
+                        {
+                          background: item.background,
+                          color: item.color,
+                          fontFamily: monoStack,
+                        } as CSSProperties
+                      }
+                    >
+                      {item.label}
+                    </Link>
+                  </li>
+                ))}
               </ul>
-            </div>
+            </nav>
 
             <div
-              className={`${davidRegular.className} text-center md:text-left`}
+              className="menu-contact-note"
               style={{
-                position: "absolute",
-                bottom: "32px",
-                left: 0,
-                right: 0,
-                color: "#FA4639",
-                paddingLeft: "24px",
-                fontSize: "20px",
+                fontFamily: noteStack,
               }}
             >
-              <p style={{}}>holla at me @</p>
-              <p style={{ marginBottom: "8px" }}>bshearin15@gmail.com</p>
+              <p>holla at me*</p>
+              <a href="mailto:bshearin15@gmail.com">bshearin15@gmail.com</a>
             </div>
           </div>
         )}
